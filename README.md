@@ -1,6 +1,7 @@
 # Pizzeria Romana
 
 El restaurante con la mejores pizzas de El Salvdor 🍷🧐
+Una app facil de usar 
 
 ## Recursos utilizados
 
