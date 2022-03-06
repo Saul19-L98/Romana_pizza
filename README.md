@@ -7,7 +7,10 @@ El proyecto esta respaldado bajo la Licencia Creative Commons **Atribución-NoCo
 
 # Integrantes
 - Williams Ernesto Amaya Moreno AM180695
--
+- Wilber Adonay Cruz Cruz CC181562
+- Jorge Alberto Torres Lima TL160424
+- Steven Alfonso Margueis Ramos MR161348
+- Saúl Alejandro Laínez Mejía LM170147
 
 
 Una app facil de usar 😎
