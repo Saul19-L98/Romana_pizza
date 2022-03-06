@@ -1,6 +1,6 @@
 # Pizzeria Romana
 
-El restaurante con la mejores pizzas de El Salvdor 🍷🧐
+El restaurante con la mejores pizzas de El Salvador 🍷🧐
 Una app facil de usar 😎
 
 ## Recursos utilizados
