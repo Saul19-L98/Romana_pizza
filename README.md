@@ -17,6 +17,5 @@ Una app facil de usar 😎
 | Option                                                                                                         | Description                                                                             |
 | -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | [Trello](https://trello.com/invite/b/UM2AAIBR/aa7f6d91fb106f3fb46c82be7946f612/go-to-market-strategy-template) | Uso de la herramienta trello para el intercambio y roles a cumplir dentro del projecto. |
-| engine                                                                                                         | engine to be used for processing templates. Handlebars is the default.                  |
-| ext                                                                                                            | extension to be used for dest files.                             | Balsamiq                                                                                                       |    Herramienta .
-                                |
+| [Balsamiq](https://drive.google.com/file/d/1Q-SmyAOzW18pL6Ixb_gcWW_Xi2wQJxYG/view?usp=sharing)                                                                                                         | Es una herramienta que permite diseñar de forma rápida y sencilla maquetas de interfaz para webs y aplicaciones móviles.                  |
+| ext                                                                                                            | extension to be used for dest files.                             
