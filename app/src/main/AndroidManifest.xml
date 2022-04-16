@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pizzeria_forkify">
         <activity
+            android:name=".OrderPizza.LandingMenuActivity"
+            android:exported="false"
+            android:label="@string/title_activity_landing_menu"
+            android:theme="@style/Theme.Pizzeria_forkify.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
