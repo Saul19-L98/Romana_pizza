@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import sv.edu.udb.pizzeria_forkify.databinding.FragmentHomeBinding;
@@ -24,6 +25,8 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         final RecyclerView recyclerView = binding.rvMenulist;
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         homeViewModel.getMenu(recyclerView,getContext());
 
 //        final TextView textView = binding.textHome;

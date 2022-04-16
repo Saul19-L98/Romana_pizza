@@ -1,12 +1,15 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +26,7 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
     Context context;
     ArrayList<MenuPizzasItem> pizzasList;
 
+
     public MenuPizzasAdapter(Context context, ArrayList<MenuPizzasItem> pizzasList) {
         this.context = context;
         this.pizzasList = pizzasList;
@@ -37,12 +41,18 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        Log.e("Pizzas", "Adapter pizza list: "+ pizzasList);
         MenuPizzasItem menuPizzasItem =pizzasList.get(position);
         holder.tv_name.setText(menuPizzasItem.getNombre());
         holder.tv_ingredients.setText(menuPizzasItem.getIngredientes());
         holder.tv_price.setText(menuPizzasItem.getPrecio());
-        Glide.with(context).load("https://firebasestorage.googleapis.com/v0/b/pizzeria-forkify.appspot.com/o/menuImages%2FCapture.PNG?alt=media&token=6c8f88d0-b90f-4402-986f-501cb7df14cb"
-        ).into(holder.img_pizza);
+        Glide.with(context).load(menuPizzasItem.getRefImg()).into(holder.img_pizza);
+        holder.view_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"clickeaste el item: "+menuPizzasItem.getKey(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
@@ -55,6 +65,7 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
 
         ImageView img_pizza;
         TextView tv_name,tv_ingredients,tv_price;
+        View view_item;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -62,6 +73,7 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_ingredients = itemView.findViewById(R.id.tv_ingredients);
             tv_price=itemView.findViewById(R.id.tv_price);
+            view_item =itemView;
 
         }
     }

@@ -1,7 +1,10 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.model;
 
+import java.security.Key;
+
 public class MenuPizzasItem {
     private String Nombre,Ingredientes,Precio,RefImg;
+    String Key;
 
     public MenuPizzasItem() {
     }
@@ -11,6 +14,7 @@ public class MenuPizzasItem {
         Ingredientes = ingredientes;
         Precio = precio;
         RefImg = refImg;
+
     }
 
     public String getNombre() {
@@ -43,5 +47,13 @@ public class MenuPizzasItem {
 
     public void setRefImg(String refImg) {
         RefImg = refImg;
+    }
+
+    public String getKey() {
+        return Key;
+    }
+
+    public void setKey(String key) {
+        Key = key;
     }
 }
