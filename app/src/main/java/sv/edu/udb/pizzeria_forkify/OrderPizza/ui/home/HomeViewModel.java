@@ -3,6 +3,7 @@ package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home;
 import android.content.Context;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DataSnapshot;
@@ -18,6 +19,7 @@ public class HomeViewModel extends ViewModel {
 
 //    private final MutableLiveData<String> mText;
     private ArrayList<MenuPizzasItem> list;
+    private ArrayList<MenuPizzasItem> listOriginal;
     MenuPizzasAdapter menuPizzasAdapter;
 
 
@@ -41,7 +43,7 @@ public class HomeViewModel extends ViewModel {
 
 
     public void getMenu(RecyclerView recyclerView, Context context) {
-
+        listOriginal =new ArrayList<>();
         list = new ArrayList<>();
         menuPizzasAdapter = new MenuPizzasAdapter(context,list);
         recyclerView.setAdapter(menuPizzasAdapter);
@@ -50,13 +52,16 @@ public class HomeViewModel extends ViewModel {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
+                listOriginal.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     MenuPizzasItem menuPizzasItem = dataSnapshot.getValue(MenuPizzasItem.class);
                     menuPizzasItem.setKey(dataSnapshot.getKey().toString());
                     list.add(menuPizzasItem);
-                }
 
+                }
+                listOriginal.addAll(list);
                 menuPizzasAdapter.notifyDataSetChanged();
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -65,5 +70,20 @@ public class HomeViewModel extends ViewModel {
         });
 
         return;
+    }
+
+    public void searchTXT(SearchView searchView, Context context) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                menuPizzasAdapter.filter(newText,listOriginal);
+                return false;
+            }
+        });
     }
 }

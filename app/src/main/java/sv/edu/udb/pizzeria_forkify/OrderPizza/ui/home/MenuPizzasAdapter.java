@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import sv.edu.udb.pizzeria_forkify.OrderPizza.model.MenuPizzasItem;
 import sv.edu.udb.pizzeria_forkify.R;
@@ -61,6 +63,7 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
         return pizzasList.size();
     }
 
+
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         ImageView img_pizza;
@@ -76,6 +79,19 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
             view_item =itemView;
 
         }
+    }
+
+    public void filter(String sch_text, ArrayList<MenuPizzasItem> listOriginal){
+        if (sch_text.isEmpty()){
+            pizzasList.clear();
+            pizzasList.addAll(listOriginal);
+        }else {
+            List<MenuPizzasItem> filtered = pizzasList.stream().filter(i -> i.getNombre().toLowerCase().contains(sch_text.toLowerCase())).collect(Collectors.toList());
+            System.out.println(filtered);
+            pizzasList.clear();
+            pizzasList.addAll(filtered);
+        }
+        notifyDataSetChanged();
     }
 
 }
