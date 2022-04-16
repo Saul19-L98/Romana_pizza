@@ -1,6 +1,7 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -22,7 +23,7 @@ import sv.edu.udb.pizzeria_forkify.OrderPizza.model.MenuPizzasItem;
 public class HomeViewModel extends ViewModel {
 
 
-    private final MutableLiveData<String> mText;
+//    private final MutableLiveData<String> mText;
     private ArrayList<MenuPizzasItem> list;
     MenuPizzasAdapter menuPizzasAdapter;
 
@@ -37,13 +38,13 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         this.list = list;
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+//        mText = new MutableLiveData<>();
+//        mText.setValue("This is home fragment");
     }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+//    public LiveData<String> getText() {
+//        return mText;
+//    }
 
 
     public void getMenu(RecyclerView recyclerView, Context context) {
@@ -57,12 +58,13 @@ public class HomeViewModel extends ViewModel {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-
+                    Log.e("Pizzas", "Numro de pizzas recibidas: "+ dataSnapshot.getValue() );
                     MenuPizzasItem menuPizzasItem = dataSnapshot.getValue(MenuPizzasItem.class);
                     list.add(menuPizzasItem);
                 }
+                Log.e("Pizzas", "Numero de pizzas recibidas: "+ list.size());
+                Log.e("Pizzas", "Numero de pizzas recibidas: "+ list.get(0).toString());
                 menuPizzasAdapter.notifyDataSetChanged();
-
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

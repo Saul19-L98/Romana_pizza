@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 import sv.edu.udb.pizzeria_forkify.OrderPizza.model.MenuPizzasItem;
@@ -39,6 +41,8 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
         holder.tv_name.setText(menuPizzasItem.getNombre());
         holder.tv_ingredients.setText(menuPizzasItem.getIngredientes());
         holder.tv_price.setText(menuPizzasItem.getPrecio());
+        Glide.with(context).load("https://firebasestorage.googleapis.com/v0/b/pizzeria-forkify.appspot.com/o/menuImages%2FCapture.PNG?alt=media&token=6c8f88d0-b90f-4402-986f-501cb7df14cb"
+        ).into(holder.img_pizza);
 
     }
 
@@ -54,7 +58,7 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            img_pizza=itemView.findViewById(R.id.img_pizza);
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_ingredients = itemView.findViewById(R.id.tv_ingredients);
             tv_price=itemView.findViewById(R.id.tv_price);
