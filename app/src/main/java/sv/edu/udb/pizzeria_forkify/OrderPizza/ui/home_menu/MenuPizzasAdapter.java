@@ -1,13 +1,11 @@
-package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home;
+package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextClock;
 import android.widget.TextView;
 import android.widget.Toast;
 

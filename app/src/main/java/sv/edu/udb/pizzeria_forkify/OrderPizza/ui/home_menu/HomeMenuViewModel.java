@@ -1,7 +1,7 @@
-package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home;
+package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu;
 
 import android.content.Context;
-import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.ViewModel;
@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import sv.edu.udb.pizzeria_forkify.OrderPizza.model.MenuPizzasItem;
 
-public class HomeViewModel extends ViewModel {
+public class HomeMenuViewModel extends ViewModel {
 
 
 //    private final MutableLiveData<String> mText;
@@ -31,7 +31,7 @@ public class HomeViewModel extends ViewModel {
 
 
 
-    public HomeViewModel() {
+    public HomeMenuViewModel() {
 
 //        mText = new MutableLiveData<>();
 //        mText.setValue("This is home fragment");

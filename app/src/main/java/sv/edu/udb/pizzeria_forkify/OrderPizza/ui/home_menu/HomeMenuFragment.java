@@ -1,4 +1,4 @@
-package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home;
+package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,20 +10,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import sv.edu.udb.pizzeria_forkify.databinding.FragmentHomeMenuBinding;
 
-import sv.edu.udb.pizzeria_forkify.databinding.FragmentHomeBinding;
+public class HomeMenuFragment extends Fragment {
 
-public class HomeFragment extends Fragment {
-
-    private FragmentHomeBinding binding;
+    private FragmentHomeMenuBinding binding;
     MenuPizzasAdapter myAdapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        HomeMenuViewModel homeMenuViewModel =
+                new ViewModelProvider(this).get(HomeMenuViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentHomeMenuBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
@@ -31,12 +30,12 @@ public class HomeFragment extends Fragment {
         final RecyclerView recyclerView = binding.rvMenulist;
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        homeViewModel.getMenu(recyclerView,getContext());
+        homeMenuViewModel.getMenu(recyclerView,getContext());
 
 
         //filtrado
         final SearchView searchView =binding.schTxt;
-        homeViewModel.searchTXT(searchView,getContext());
+        homeMenuViewModel.searchTXT(searchView,getContext());
 
         return root;
     }
