@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_landing_menu.xml" value="0.4413757165190203" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/adapter_menu_list.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_home.xml" value="0.6084860173577628" />
       </map>

@@ -16,7 +16,8 @@
             android:theme="@style/Theme.Pizzeria_forkify.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.ToolBarActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

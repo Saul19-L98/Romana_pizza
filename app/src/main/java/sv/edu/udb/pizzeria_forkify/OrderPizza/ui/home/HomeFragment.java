@@ -26,6 +26,8 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+        //llenado de datos desde firebase
         final RecyclerView recyclerView = binding.rvMenulist;
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -33,12 +35,9 @@ public class HomeFragment extends Fragment {
 
 
         //filtrado
-
         final SearchView searchView =binding.schTxt;
         homeViewModel.searchTXT(searchView,getContext());
 
-//        final TextView textView = binding.textHome;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
