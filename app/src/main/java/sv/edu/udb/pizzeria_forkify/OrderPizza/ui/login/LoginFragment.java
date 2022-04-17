@@ -1,4 +1,4 @@
-package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.slideshow;
+package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.login;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,23 +9,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import sv.edu.udb.pizzeria_forkify.databinding.FragmentLoginBinding;
 
-import sv.edu.udb.pizzeria_forkify.databinding.FragmentSlideshowBinding;
 
-public class SlideshowFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
-    private FragmentSlideshowBinding binding;
+    private FragmentLoginBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SlideshowViewModel slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        LoginViewModel loginViewModel =
+                new ViewModelProvider(this).get(LoginViewModel.class);
 
-        binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+//        final TextView textView = binding.textSlideshow;
+//        loginViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
