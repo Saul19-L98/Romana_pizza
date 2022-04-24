@@ -10,5 +10,14 @@
 
     <string name="menu_home_pizzas_menu">Menu</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_login">Inciar Sesion</string>
+    <string name="menu_login">Iniciar Sesion</string>
+
+    <string name="Text_Splash">Recetario Forkyfy</string>
+
+    <string name="About_SOCIAL">REDES SOCIALES</string>
+    <string name="About_Insta">Forkyfy_SV</string>
+    <string name="About_Facebook">Forkyfy</string>
+    <string name="About_Twitter">ForkyfySV</string>
+    <string name="About_derechos">Derechos Reservados 2022</string>
+
 </resources>

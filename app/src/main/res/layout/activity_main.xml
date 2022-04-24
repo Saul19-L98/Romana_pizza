@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:gravity="center"
-            android:text="reemplazar por un string value"
+            android:text="@string/Text_Splash"
             android:layout_marginTop="20dp"
             android:textSize="25dp"
             />
