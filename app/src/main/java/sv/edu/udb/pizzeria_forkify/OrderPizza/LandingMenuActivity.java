@@ -5,7 +5,9 @@ import android.view.Menu;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,6 +23,7 @@ public class LandingMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityLandingMenuBinding binding;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +45,34 @@ public class LandingMenuActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_menu, R.id.nav_gallery, R.id.nav_login)
+                R.id.nav_menu, R.id.nav_gallery, R.id.nav_login,R.id.nav_exp_recipe)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_landing_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        Menu menu =navigationView.getMenu();
+        menu.findItem(R.id.nav_exp_recipe).setVisible(false);
+        menu.findItem(R.id.nav_exp_recipe).setCheckable(false);
+
+
+        /**
+         * falta buscar la forma de cambiar el "burger" button para sustituirlo por el boton de back
+         * */
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        if (mToolbar != null) {
+//            setSupportActionBar(mToolbar);
+//        }
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//        setSupportActionBar(mToolbar);
+//        mToolbar.setNavigationOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 
     @Override
