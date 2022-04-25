@@ -1,6 +1,7 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -51,6 +58,16 @@ public class MenuPizzasAdapter extends RecyclerView.Adapter<MenuPizzasAdapter.My
             @Override
             public void onClick(View view) {
                 Toast.makeText(context,"clickeaste el item: "+menuPizzasItem.getKey(), Toast.LENGTH_SHORT).show();
+
+//                AppCompatActivity  activity = (AppCompatActivity) view.getContext();
+//                ExpandRecipeFragment expandRecipeFragment = new ExpandRecipeFragment();
+//                activity.getSupportFragmentManager().beginTransaction().replace(R.id.rec, expandRecipeFragment).addToBackStack(null).commit();
+
+                NavController navController = Navigation.findNavController(view);
+//                Bundle arguments = new Bundle();
+//                arguments("menuPizzasItem",menuPizzasItem);
+                navController.navigate(R.id.nav_exp_recipe);
+
             }
         });
 

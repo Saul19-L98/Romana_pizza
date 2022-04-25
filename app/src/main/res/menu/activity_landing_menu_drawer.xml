@@ -16,5 +16,9 @@
             android:id="@+id/nav_login"
             android:icon="@drawable/user"
             android:title="@string/menu_login" />
+        <item
+            android:id="@+id/nav_exp_recipe"
+            android:icon="@drawable/user"
+            android:title="@string/menu_login" />
     </group>
 </menu>
