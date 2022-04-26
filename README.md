@@ -26,7 +26,7 @@ Una app facil de usar 😎
 | [Documento](https://drive.google.com/drive/folders/1oPw7S_f2xIWM5oypwp4MbGWzeKtxSflE?usp=sharing)              | Documento del Perfil del Proyecto                                                                                                                    |
 | [Video](https://www.youtube.com/watch?v=dsGWS0IPnko)              | Demostración de los avances en el proyecto para la su fase 2                                                                                                                    |
 | [Manual de Usuario](https://drive.google.com/file/d/14UkhpR7vt9pZL6oXKvxOvLoeuN0YnLGK/view)              | Documento donde se explica como funciona la aplicación                                                                                                                    |
-| [Manual Técnico](https://drive.google.com/file/d/1CeaurZdrGC9Ljq6UUPXA74ZcLNIUBt1j/view)              | Documento donde se explica como esta construidad la aplicación                                                                                                                   |
+| [Manual Técnico](https://drive.google.com/file/d/18MVBnK2uNXlEUYJcYoe4aHzugUCHcO7k/view?usp=sharing)              | Documento donde se explica como esta construidad la aplicación                                                                                                                   |
 
 ## License
 
