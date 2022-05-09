@@ -22,4 +22,9 @@
         android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.login.LoginFragment"
         android:label="@string/menu_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_admin"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.admin.AdminFragment"
+        android:label="@string/Admin"
+        tools:layout="@layout/admin_fragment" />
 </navigation>
