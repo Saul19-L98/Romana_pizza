@@ -15,7 +15,7 @@ import sv.edu.udb.pizzeria_forkify.databinding.FragmentHomeMenuBinding;
 public class HomeMenuFragment extends Fragment {
 
     private FragmentHomeMenuBinding binding;
-    MenuPizzasAdapter myAdapter;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

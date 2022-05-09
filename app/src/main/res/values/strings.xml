@@ -11,4 +11,22 @@
     <string name="menu_home_pizzas_menu">Menu</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_login">Inciar Sesion</string>
+    <string name="title_activity_recipe_display">RecipeDisplay</string>
+    <string name="large_text">
+        hola llegate hasta aqui , esto lo agrego la plantillia de android xd
+    </string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="Reciple_Title">Titulo de la Receta</string>
+    <string name="NoPersonas">x Personas</string>
+    <string name="Tiempo_Receta"> 1Hora</string>
+    <string name="Ingredientes">Ingredientes </string>
+    <string name="Pasos">Pasos</string>
+
 </resources>
