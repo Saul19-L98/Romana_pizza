@@ -3,8 +3,8 @@ package sv.edu.udb.pizzeria_forkify.OrderPizza.model;
 
 
 public class ModelArray {
-    private String Valor;
     String Key;
+    private String Valor;
 
     public ModelArray() {
 

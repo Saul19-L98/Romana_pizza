@@ -2,6 +2,7 @@ package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.admin;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,13 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import sv.edu.udb.pizzeria_forkify.R;
-import sv.edu.udb.pizzeria_forkify.databinding.AdminFragmentBinding;
+import java.util.ArrayList;
+
+import sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModification;
+import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetas;
+import sv.edu.udb.pizzeria_forkify.databinding.FragmentAdminBinding;
 
 public class AdminFragment extends Fragment {
 
-    private AdminFragmentBinding binding;
+    private FragmentAdminBinding binding;
+
 
 
     @Override
@@ -28,17 +34,27 @@ public class AdminFragment extends Fragment {
         AdminViewModel adminViewModel=
                 new ViewModelProvider(this).get(AdminViewModel.class);
 
-        binding = AdminFragmentBinding.inflate(inflater,container,false);
+        binding = FragmentAdminBinding.inflate(inflater,container,false);
         View root = binding.getRoot();
 
         //llenado desde firebase
         final RecyclerView recyclerView = binding.RecetasList;
         recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adminViewModel.getRecipes(recyclerView,getContext());
+        adminViewModel.getMenu(recyclerView,getContext());
 
-        //popup Menu
-        adminViewModel.popMenu(recyclerView,getContext());
+
+        //create recipe
+        final TextView tv_btn_crear = binding.tvBtnCrear;
+        tv_btn_crear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent= new Intent(getContext(), RecipeModification.class);
+//                ModelRecetas modelRecetasItem =list.get(list.size()-1);
+//                intent.putExtra("LastKey",modelRecetasItem.getKey());
+//                getContext().startActivity(intent);
+            }
+        });
 
 
         return root;

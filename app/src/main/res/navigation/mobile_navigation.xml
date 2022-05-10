@@ -26,5 +26,5 @@
         android:id="@+id/nav_admin"
         android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.admin.AdminFragment"
         android:label="@string/Admin"
-        tools:layout="@layout/admin_fragment" />
+        tools:layout="@layout/fragment_admin" />
 </navigation>

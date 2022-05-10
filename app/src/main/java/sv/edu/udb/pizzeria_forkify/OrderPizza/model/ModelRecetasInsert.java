@@ -4,79 +4,59 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ModelRecetasInsert implements Serializable {
-    private String Titulo,RefImg,Descripcion,Tiempo;
-    private ArrayList<ModelArray> Ingredientes,Pasos;
-    private Integer NoPersonas;
+    private String titulo,refImg,descripcion,tiempo;
+    private Integer noPersonas;
     String Key;
 
     public ModelRecetasInsert() {
     }
 
-    public ModelRecetasInsert(String titulo, String refImg, String descripcion, String tiempo, ArrayList<ModelArray> ingredientes, ArrayList<ModelArray> pasos, Integer noPersonas) {
-        Titulo = titulo;
-        RefImg = refImg;
-        Descripcion = descripcion;
-        Tiempo = tiempo;
-        Ingredientes = ingredientes;
-        Pasos = pasos;
-        NoPersonas = noPersonas;
-
+    public ModelRecetasInsert(String Titulo, String RefImg, String Descripcion, String Tiempo, Integer NoPersonas) {
+        this.titulo = Titulo;
+        this.refImg = RefImg;
+        this.descripcion = Descripcion;
+        this.tiempo = Tiempo;
+        this.noPersonas = NoPersonas;
     }
 
     public String getTitulo() {
-        return Titulo;
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
-        Titulo = titulo;
+        this.titulo = titulo;
     }
 
     public String getRefImg() {
-        return RefImg;
+        return refImg;
     }
 
     public void setRefImg(String refImg) {
-        RefImg = refImg;
+        this.refImg = refImg;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
     public String getTiempo() {
-        return Tiempo;
+        return tiempo;
     }
 
     public void setTiempo(String tiempo) {
-        Tiempo = tiempo;
-    }
-
-    public ArrayList<ModelArray> getIngredientes() {
-        return Ingredientes;
-    }
-
-    public void setIngredientes(ArrayList<ModelArray> ingredientes) {
-        Ingredientes = ingredientes;
-    }
-
-    public ArrayList<ModelArray> getPasos() {
-        return Pasos;
-    }
-
-    public void setPasos(ArrayList<ModelArray> pasos) {
-        Pasos = pasos;
+        this.tiempo = tiempo;
     }
 
     public Integer getNoPersonas() {
-        return NoPersonas;
+        return noPersonas;
     }
 
     public void setNoPersonas(Integer noPersonas) {
-        NoPersonas = noPersonas;
+        this.noPersonas = noPersonas;
     }
 
     public String getKey() {

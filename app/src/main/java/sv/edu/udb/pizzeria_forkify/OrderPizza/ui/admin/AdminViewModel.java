@@ -16,7 +16,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetas;
-import sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu.ModelRecetasAdapter;
 
 
 public class AdminViewModel extends ViewModel {
@@ -26,6 +25,7 @@ public class AdminViewModel extends ViewModel {
     private ArrayList<String> ingredientesList;
     private ArrayList<String> pasosList;
     RecetasListAdapter recetasListAdapter;
+    
 
     //referencia de la base de datos
 
@@ -34,7 +34,7 @@ public class AdminViewModel extends ViewModel {
             .child("Categoria")
             .child("Mixto");
 
-    public void getRecipes(RecyclerView recyclerView, Context context) {
+    public void getMenu(RecyclerView recyclerView, Context context) {
         listOriginal =new ArrayList<>();
         list = new ArrayList<>();
         ingredientesList = new ArrayList<>();
@@ -42,7 +42,6 @@ public class AdminViewModel extends ViewModel {
 
         recetasListAdapter = new RecetasListAdapter(context,list);
         recyclerView.setAdapter(recetasListAdapter);
-
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -65,18 +64,21 @@ public class AdminViewModel extends ViewModel {
                         pasosList.add(dataSnapshot2.getValue().toString());
                     }
 
-                    Log.e("Listas", "Adapter pizza list: "+ pasosList.get(1) );
+                    Log.e("Listas", "Adapter pizza list: "+ pasosList );
 
                     ModelRecetas modelRecetasItem =new ModelRecetas(
-                            snapshot.child(dataSnapshot.getKey()).child("Titulo").getValue().toString(),
-                            snapshot.child(dataSnapshot.getKey()).child("RefImg").getValue().toString(),
-                            snapshot.child(dataSnapshot.getKey()).child("Descripcion").getValue().toString(),
-                            snapshot.child(dataSnapshot.getKey()).child("Tiempo").getValue().toString(),
-                            ingredientesList,pasosList,
-                            Integer.parseInt(snapshot.child(dataSnapshot.getKey()).child("NoPersonas").getValue().toString())
+                            snapshot.child(dataSnapshot.getKey()).child("titulo").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("refImg").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("descripcion").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("tiempo").getValue().toString(),
+                            (ArrayList<String>) ingredientesList.clone(), (ArrayList<String>) pasosList.clone(),
+                            Integer.parseInt(snapshot.child(dataSnapshot.getKey()).child("noPersonas").getValue().toString())
                     );
                     modelRecetasItem.setKey(dataSnapshot.getKey());
+
+
                     list.add(modelRecetasItem);
+
                 }
 
                 listOriginal.addAll(list);
@@ -90,12 +92,8 @@ public class AdminViewModel extends ViewModel {
         });
 
         return;
-
     }
 
-    public void popMenu(RecyclerView recyclerView, Context context) {
-
-    }
 
 
     // TODO: Implement the ViewModel

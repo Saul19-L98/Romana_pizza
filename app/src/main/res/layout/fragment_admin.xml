@@ -36,9 +36,22 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Recetas_list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="520dp">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/tv_btn_crear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Crear"
+                android:textSize="23sp"
+                android:padding="5sp"
+                android:layout_marginTop="20sp"
+                android:textAlignment="center"
+                android:background="@drawable/btn_shape"
+                android:textStyle="bold"
+                />
 
 
 

@@ -51,41 +51,27 @@ public class RecetasListAdapter extends RecyclerView.Adapter<RecetasListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Log.e("Pizzas", "Adapter pizza list: "+ recetasList);
+        Log.e("Pizzas", "Adapter pizza list: "+ recetasList.get(position));
         ModelRecetas modelRecetasItem =recetasList.get(position);
         holder.tv_titulo2.setText(modelRecetasItem.getTitulo());
         holder.tv_descripcion.setText(modelRecetasItem.getDescripcion());
         Glide.with(context).load(modelRecetasItem.getRefImg()).into(holder.img_receta2);
+
         holder.view_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"clickeaste el item: "+modelRecetasItem.getKey(), Toast.LENGTH_SHORT).show();
-                PopupMenu popupMenu = new PopupMenu(context,view);
-                popupMenu.getMenuInflater().inflate(R.menu.popupmenu,popupMenu.getMenu());
+                Intent intent= new Intent(view.getContext(), RecipeModification.class);
+                intent.putExtra("clase",modelRecetasItem);
+                intent.putExtra("mod","m");
+                view.getContext().startActivity(intent);
+            }
+        });
 
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()){
-                            case R.id.popup_delete:
-                                delete_alert(modelRecetasItem.getKey());
-                                break;
-
-                            case R.id.popup_mod:
-                                Intent intent= new Intent(view.getContext(), RecipeModification.class);
-                                intent.putExtra("clase",modelRecetasItem);
-                                view.getContext().startActivity(intent);
-                                break;
-                        }
-
-                        return true;
-                    }
-                });
-                popupMenu.show();
-
-//                Intent intent= new Intent(view.getContext(), RecipeDisplay.class);
-//                intent.putExtra("key", modelRecetasItem.getKey());
-//                view.getContext().startActivity(intent);
+        holder.view_item.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                delete_alert(modelRecetasItem.getKey());
+                return true;
             }
         });
 

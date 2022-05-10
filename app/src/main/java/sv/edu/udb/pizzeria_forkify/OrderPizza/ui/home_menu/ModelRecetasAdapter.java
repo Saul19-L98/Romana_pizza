@@ -58,7 +58,7 @@ public class ModelRecetasAdapter extends RecyclerView.Adapter<ModelRecetasAdapte
         holder.view_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,"clickeaste el item: "+modelRecetasItem.getKey(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context,"clickeaste el item: "+modelRecetasItem.getKey(), Toast.LENGTH_SHORT).show();
                 Intent intent= new Intent(view.getContext(), RecipeDisplay.class);
                 intent.putExtra("key", modelRecetasItem.getKey());
                 view.getContext().startActivity(intent);

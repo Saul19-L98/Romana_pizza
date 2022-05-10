@@ -35,7 +35,8 @@ public class HomeMenuFragment extends Fragment {
 
         //filtrado
         final SearchView searchView =binding.schTxt;
-        homeMenuViewModel.searchTXT(searchView,getContext());
+        homeMenuViewModel.searchTXT(searchView,getActivity());
+
 
         return root;
     }

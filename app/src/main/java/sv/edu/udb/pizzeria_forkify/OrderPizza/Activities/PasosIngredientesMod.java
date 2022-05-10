@@ -18,8 +18,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.dynamic.IFragmentWrapper;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -31,12 +37,12 @@ import sv.edu.udb.pizzeria_forkify.R;
 
 public class PasosIngredientesMod extends AppCompatActivity {
 
+    EditText et_btnAgregar;
     TextView tv_pasos_ingredientes_mod,tv_btnAgregar,tv_btnGuardar;
     ListView lv_ingredientes_pasos;
     ArrayAdapter<String> mAdapterIngre;
     ArrayAdapter<String> mAdapterPasos;
-    ArrayList<ModelArray> modelArrayIngre = new ArrayList<ModelArray>();
-    ArrayList<ModelArray> modelArrayPasos = new ArrayList<ModelArray>();
+
 
 
 
@@ -96,62 +102,43 @@ public class PasosIngredientesMod extends AppCompatActivity {
         lv_ingredientes_pasos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                showMod(i);
-
-
+                showModInterface(i);
             }
         });
 
         tv_btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                modelArrayIngre.clear();
-                modelArrayPasos.clear();
-                String ListKey = "A";
-
-                for( String item : ingredientesList){
-                    ModelArray modelArray= new ModelArray(ListKey,item);
-                    int charValue = ListKey.charAt(0);
-                    String next  = String.valueOf((char)(charValue + 1));
-                    ListKey=next;
-                    modelArrayIngre.add(modelArray);
-                }
-
-                ListKey = "A";
-
-                for( String item : pasosList){
-                    ModelArray modelArray= new ModelArray(ListKey,item);
-                    int charValue = ListKey.charAt(0);
-                    String next  = String.valueOf((char)(charValue + 1));
-                    ListKey=next;
-                    modelArrayIngre.add(modelArray);
-                }
-
-                ModelRecetas modelRecetas =new ModelRecetas();
-                modelRecetas= (ModelRecetas) getIntent().getSerializableExtra("clase");
-
-                ModelRecetasInsert modelRecetasInsert = new ModelRecetasInsert(
-                        modelRecetas.getTitulo(),
-                        modelRecetas.getRefImg(),
-                        modelRecetas.getDescripcion(),
-                        modelRecetas.getTiempo(),
-                        modelArrayIngre,
-                        modelArrayPasos,
-                        modelRecetas.getNoPersonas()
-                );
-
-                
-
-
+                PasosIngredientesMod.super.onBackPressed();
             }
         });
 
-
+        tv_btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getIntent().getStringExtra("type").contains("pasos")) {
+                    if (!et_btnAgregar.getText().toString().isEmpty()){
+                        pasosList.add(pasosList.size(),et_btnAgregar.getText().toString());
+                        mAdapterPasos.notifyDataSetChanged();
+                    }
+                    else {
+                        Toast.makeText(PasosIngredientesMod.this,R.string.CampoVacio, Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    if (!et_btnAgregar.getText().toString().isEmpty()){
+                        ingredientesList.add(ingredientesList.size(),et_btnAgregar.getText().toString());
+                        mAdapterIngre.notifyDataSetChanged();
+                    }
+                    else {
+                        Toast.makeText(PasosIngredientesMod.this,R.string.CampoVacio, Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
-    private void showMod(int indexList) {
 
+    private void showModInterface(int indexList) {
         Dialog dialog = new Dialog(PasosIngredientesMod.this);
         dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
         dialog.setContentView(R.layout.mod_alert);
@@ -179,10 +166,6 @@ public class PasosIngredientesMod extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
-
-
                 String mod_item=editText.getText().toString().trim();
 
                 //actualizacion de la lista
@@ -205,6 +188,7 @@ public class PasosIngredientesMod extends AppCompatActivity {
         tv_pasos_ingredientes_mod = findViewById(R.id.tv_pasos_ingredientes_mod);
         lv_ingredientes_pasos = findViewById(R.id.lv_ingredientes_pasos);
 
+        et_btnAgregar = findViewById(R.id.et_btnAgregar);
         tv_btnAgregar = findViewById(R.id.tv_btnAgregar);
         tv_btnGuardar = findViewById(R.id.tv_btnGuardar);
     }

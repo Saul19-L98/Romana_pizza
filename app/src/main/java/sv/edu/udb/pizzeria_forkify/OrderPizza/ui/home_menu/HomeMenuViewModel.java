@@ -83,12 +83,12 @@ public class HomeMenuViewModel extends ViewModel {
                     Log.e("Listas", "Adapter pizza list: "+ pasosList );
 
                     ModelRecetas modelRecetasItem =new ModelRecetas(
-                            snapshot.child(dataSnapshot.getKey()).child("Titulo").getValue().toString(),
-                            snapshot.child(dataSnapshot.getKey()).child("RefImg").getValue().toString(),
-                            snapshot.child(dataSnapshot.getKey()).child("Descripcion").getValue().toString(),
-                            snapshot.child(dataSnapshot.getKey()).child("Tiempo").getValue().toString(),
-                            ingredientesList,pasosList,
-                            Integer.parseInt(snapshot.child(dataSnapshot.getKey()).child("NoPersonas").getValue().toString())
+                            snapshot.child(dataSnapshot.getKey()).child("titulo").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("refImg").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("descripcion").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("tiempo").getValue().toString(),
+                            (ArrayList<String>) ingredientesList.clone(), (ArrayList<String>) pasosList.clone(),
+                            Integer.parseInt(snapshot.child(dataSnapshot.getKey()).child("noPersonas").getValue().toString())
                     );
                     modelRecetasItem.setKey(dataSnapshot.getKey());
 
