@@ -17,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import sv.edu.udb.pizzeria_forkify.R;
 import sv.edu.udb.pizzeria_forkify.databinding.ActivityLandingMenuBinding;
 
+
 public class LandingMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;

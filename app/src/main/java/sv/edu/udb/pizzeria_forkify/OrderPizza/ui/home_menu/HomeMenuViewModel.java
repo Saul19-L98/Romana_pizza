@@ -80,7 +80,7 @@ public class HomeMenuViewModel extends ViewModel {
                         pasosList.add(dataSnapshot2.getValue().toString());
                     }
 
-                    Log.e("Listas", "Adapter pizza list: "+ pasosList.get(1) );
+                    Log.e("Listas", "Adapter pizza list: "+ pasosList );
 
                     ModelRecetas modelRecetasItem =new ModelRecetas(
                             snapshot.child(dataSnapshot.getKey()).child("Titulo").getValue().toString(),

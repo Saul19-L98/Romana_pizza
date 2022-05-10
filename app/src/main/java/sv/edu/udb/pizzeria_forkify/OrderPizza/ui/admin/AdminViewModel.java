@@ -76,10 +76,7 @@ public class AdminViewModel extends ViewModel {
                             Integer.parseInt(snapshot.child(dataSnapshot.getKey()).child("NoPersonas").getValue().toString())
                     );
                     modelRecetasItem.setKey(dataSnapshot.getKey());
-
-
                     list.add(modelRecetasItem);
-
                 }
 
                 listOriginal.addAll(list);
@@ -97,7 +94,6 @@ public class AdminViewModel extends ViewModel {
     }
 
     public void popMenu(RecyclerView recyclerView, Context context) {
-
 
     }
 

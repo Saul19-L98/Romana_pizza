@@ -1,8 +1,9 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ModelRecetas {
+public class ModelRecetas implements Serializable {
     private String Titulo,RefImg,Descripcion,Tiempo;
     private ArrayList<String> Ingredientes,Pasos;
     private Integer NoPersonas;

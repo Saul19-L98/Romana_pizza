@@ -65,14 +65,7 @@ public class RecetasListAdapter extends RecyclerView.Adapter<RecetasListAdapter.
 
                             case R.id.popup_mod:
                                 Intent intent= new Intent(view.getContext(), RecipeModification.class);
-                                intent.putExtra("key", modelRecetasItem.getKey());
-                                intent.putExtra("titulo",modelRecetasItem.getDescripcion());
-                                intent.putExtra("descripcion",modelRecetasItem.getDescripcion());
-                                intent.putExtra("tiempo",modelRecetasItem.getTiempo());
-                                intent.putExtra("noPersona",modelRecetasItem.getNoPersonas());
-                                intent.putExtra("imgref",modelRecetasItem.getRefImg());
-                                intent.putExtra("ingredientes",modelRecetasItem.getIngredientes());
-                                intent.putExtra("pasos",modelRecetasItem.getPasos());
+                                intent.putExtra("clase",modelRecetasItem);
                                 view.getContext().startActivity(intent);
                                 break;
                         }
