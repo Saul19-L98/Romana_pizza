@@ -25,7 +25,7 @@ public class AdminViewModel extends ViewModel {
     private ArrayList<String> ingredientesList;
     private ArrayList<String> pasosList;
     RecetasListAdapter recetasListAdapter;
-    
+
 
     //referencia de la base de datos
 

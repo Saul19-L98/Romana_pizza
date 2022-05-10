@@ -77,19 +77,19 @@ public class RecipeDisplay extends AppCompatActivity {
                     pasosList.add(dataSnapshot2.getValue().toString());
                 }
 
-                Log.e("Listas", "Adapter pizza list: "+  snapshot.child("Titulo").getValue().toString());
+
 
                 ModelRecetas modelRecetasItem =new ModelRecetas(
-                    snapshot.child("Titulo").getValue().toString(),
-                    snapshot.child("RefImg").getValue().toString(),
-                    snapshot.child("Descripcion").getValue().toString(),
-                    snapshot.child("Tiempo").getValue().toString(),
+                    snapshot.child("titulo").getValue().toString(),
+                    snapshot.child("refImg").getValue().toString(),
+                    snapshot.child("descripcion").getValue().toString(),
+                    snapshot.child("tiempo").getValue().toString(),
                     ingredientesList,pasosList,
-                    Integer.parseInt(snapshot.child("NoPersonas").getValue().toString())
+                    Integer.parseInt(snapshot.child("noPersonas").getValue().toString())
                 );
                     modelRecetasItem.setKey(snapshot.getKey());
 
-                Log.e("Listas", "Adapter pizza list: "+  modelRecetasItem.getTitulo());
+
                     tv_titulo.setText(modelRecetasItem.getTitulo());
                     tv_tiempo.setText(modelRecetasItem.getTiempo().toString());
                     NoPersonas.setText(modelRecetasItem.getNoPersonas().toString());
