@@ -17,6 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeDisplay;
 import sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModification;
@@ -24,6 +27,11 @@ import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetas;
 import sv.edu.udb.pizzeria_forkify.R;
 
 public class RecetasListAdapter extends RecyclerView.Adapter<RecetasListAdapter.MyViewHolder> {
+
+    DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
+            .child("RecetarioForkify")
+            .child("Categoria")
+            .child("Mixto");
 
     Context context;
     ArrayList<ModelRecetas> recetasList;
@@ -122,7 +130,8 @@ public class RecetasListAdapter extends RecyclerView.Adapter<RecetasListAdapter.
             public void onClick(View view) {
 
                 //Borrado de la receta en base de datos
-
+                Toast.makeText(context,"Se borró el item: "+ recipe_code, Toast.LENGTH_SHORT).show();
+                reference.child("" + recipe_code).removeValue();
                 dialog.dismiss();
             }
         });
