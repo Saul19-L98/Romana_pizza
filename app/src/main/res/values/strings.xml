@@ -46,5 +46,6 @@
     <string name="Guardar">Guardar</string>
     <string name="img_ref">Link de la Imgen</string>
     <string name="Agregar">Agregar</string>
+    <string name="Agregar_items">Agrega Items</string>
 
 </resources>

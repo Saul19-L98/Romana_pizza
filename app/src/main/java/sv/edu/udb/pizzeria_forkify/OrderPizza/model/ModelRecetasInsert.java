@@ -3,17 +3,16 @@ package sv.edu.udb.pizzeria_forkify.OrderPizza.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ModelRecetas implements Serializable {
+public class ModelRecetasInsert implements Serializable {
     private String Titulo,RefImg,Descripcion,Tiempo;
-    private ArrayList<String> Ingredientes,Pasos;
+    private ArrayList<ModelArray> Ingredientes,Pasos;
     private Integer NoPersonas;
     String Key;
 
-    public ModelRecetas() {
+    public ModelRecetasInsert() {
     }
 
-
-    public ModelRecetas(String titulo, String refImg, String descripcion, String tiempo, ArrayList<String> ingredientes, ArrayList<String> pasos, Integer noPersonas) {
+    public ModelRecetasInsert(String titulo, String refImg, String descripcion, String tiempo, ArrayList<ModelArray> ingredientes, ArrayList<ModelArray> pasos, Integer noPersonas) {
         Titulo = titulo;
         RefImg = refImg;
         Descripcion = descripcion;
@@ -21,9 +20,8 @@ public class ModelRecetas implements Serializable {
         Ingredientes = ingredientes;
         Pasos = pasos;
         NoPersonas = noPersonas;
+
     }
-
-
 
     public String getTitulo() {
         return Titulo;
@@ -57,19 +55,19 @@ public class ModelRecetas implements Serializable {
         Tiempo = tiempo;
     }
 
-    public ArrayList<String> getIngredientes() {
+    public ArrayList<ModelArray> getIngredientes() {
         return Ingredientes;
     }
 
-    public void setIngredientes(ArrayList<String> ingredientes) {
+    public void setIngredientes(ArrayList<ModelArray> ingredientes) {
         Ingredientes = ingredientes;
     }
 
-    public ArrayList<String> getPasos() {
+    public ArrayList<ModelArray> getPasos() {
         return Pasos;
     }
 
-    public void setPasos(ArrayList<String> pasos) {
+    public void setPasos(ArrayList<ModelArray> pasos) {
         Pasos = pasos;
     }
 

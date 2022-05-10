@@ -13,6 +13,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import sv.edu.udb.pizzeria_forkify.R;
 import sv.edu.udb.pizzeria_forkify.databinding.ActivityLandingMenuBinding;
@@ -22,6 +24,11 @@ public class LandingMenuActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityLandingMenuBinding binding;
+    public static FirebaseDatabase database = FirebaseDatabase.getInstance();
+    public static DatabaseReference refMixto = database.getReference()
+            .child("RecetarioForkify")
+            .child("Categoria")
+            .child("Mixto");;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

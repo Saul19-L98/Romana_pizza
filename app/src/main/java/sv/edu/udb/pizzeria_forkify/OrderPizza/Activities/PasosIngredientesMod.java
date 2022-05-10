@@ -1,6 +1,7 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.Activities;
 import static sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModification.ingredientesList;
 import static sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModification.pasosList;
+import static sv.edu.udb.pizzeria_forkify.OrderPizza.LandingMenuActivity.refMixto;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
@@ -17,6 +18,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.Locale;
+
+import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelArray;
+import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetas;
+import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetasInsert;
 import sv.edu.udb.pizzeria_forkify.R;
 
 public class PasosIngredientesMod extends AppCompatActivity {
@@ -25,6 +35,10 @@ public class PasosIngredientesMod extends AppCompatActivity {
     ListView lv_ingredientes_pasos;
     ArrayAdapter<String> mAdapterIngre;
     ArrayAdapter<String> mAdapterPasos;
+    ArrayList<ModelArray> modelArrayIngre = new ArrayList<ModelArray>();
+    ArrayList<ModelArray> modelArrayPasos = new ArrayList<ModelArray>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +51,12 @@ public class PasosIngredientesMod extends AppCompatActivity {
 
 
         if (getIntent().getStringExtra("type").contains("pasos")){
+            tv_pasos_ingredientes_mod.setText(R.string.Pasos);
             lv_ingredientes_pasos.setAdapter(mAdapterPasos);
             mAdapterPasos.notifyDataSetChanged();
         }else {
             lv_ingredientes_pasos.setAdapter(mAdapterIngre);
+            tv_pasos_ingredientes_mod.setText(R.string.Ingredientes);
             mAdapterIngre.notifyDataSetChanged();
         }
 
@@ -81,6 +97,51 @@ public class PasosIngredientesMod extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 showMod(i);
+
+
+            }
+        });
+
+        tv_btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                modelArrayIngre.clear();
+                modelArrayPasos.clear();
+                String ListKey = "A";
+
+                for( String item : ingredientesList){
+                    ModelArray modelArray= new ModelArray(ListKey,item);
+                    int charValue = ListKey.charAt(0);
+                    String next  = String.valueOf((char)(charValue + 1));
+                    ListKey=next;
+                    modelArrayIngre.add(modelArray);
+                }
+
+                ListKey = "A";
+
+                for( String item : pasosList){
+                    ModelArray modelArray= new ModelArray(ListKey,item);
+                    int charValue = ListKey.charAt(0);
+                    String next  = String.valueOf((char)(charValue + 1));
+                    ListKey=next;
+                    modelArrayIngre.add(modelArray);
+                }
+
+                ModelRecetas modelRecetas =new ModelRecetas();
+                modelRecetas= (ModelRecetas) getIntent().getSerializableExtra("clase");
+
+                ModelRecetasInsert modelRecetasInsert = new ModelRecetasInsert(
+                        modelRecetas.getTitulo(),
+                        modelRecetas.getRefImg(),
+                        modelRecetas.getDescripcion(),
+                        modelRecetas.getTiempo(),
+                        modelArrayIngre,
+                        modelArrayPasos,
+                        modelRecetas.getNoPersonas()
+                );
+
+                
 
 
             }

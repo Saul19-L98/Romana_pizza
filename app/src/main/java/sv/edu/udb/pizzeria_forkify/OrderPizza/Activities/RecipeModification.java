@@ -64,11 +64,15 @@ public class RecipeModification extends AppCompatActivity {
             }
         });
 
-        tv_pasos_mod.setOnClickListener(new View.OnClickListener() {
+            tv_pasos_mod.setOnClickListener(new View.OnClickListener() {
+            ModelRecetas modelRecetas =new ModelRecetas();
+
+
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(RecipeModification.this,PasosIngredientesMod.class);
                 intent.putExtra("type","pasos");
+                intent.putExtra("clase",modelRecetas= (ModelRecetas) getIntent().getSerializableExtra("clase"));
                 activityResultLauncher.launch(intent);
             }
         });
