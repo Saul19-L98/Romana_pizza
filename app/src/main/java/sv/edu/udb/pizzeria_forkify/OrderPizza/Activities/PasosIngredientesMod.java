@@ -4,14 +4,18 @@ import static sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModificati
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import sv.edu.udb.pizzeria_forkify.R;
 
@@ -39,7 +43,6 @@ public class PasosIngredientesMod extends AppCompatActivity {
             lv_ingredientes_pasos.setAdapter(mAdapterIngre);
             mAdapterIngre.notifyDataSetChanged();
         }
-
 
 
         lv_ingredientes_pasos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -77,10 +80,63 @@ public class PasosIngredientesMod extends AppCompatActivity {
         lv_ingredientes_pasos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                showMod(i);
+
 
             }
         });
 
+
+    }
+
+    private void showMod(int indexList) {
+
+        Dialog dialog = new Dialog(PasosIngredientesMod.this);
+        dialog.getWindow().addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+        dialog.setContentView(R.layout.mod_alert);
+        EditText editText;
+        editText= dialog.findViewById(R.id.mod_item_text);
+
+        if (getIntent().getStringExtra("type").contains("pasos")){
+            editText.setText(pasosList.get(indexList));
+
+        }else {
+            editText.setText(ingredientesList.get(indexList));
+        }
+
+        //DEFINICION de acciones sobre los botones del menu mergente
+
+        dialog.findViewById(R.id.btn_cancelar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.findViewById(R.id.btn_agregar).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+
+
+
+
+                String mod_item=editText.getText().toString().trim();
+
+                //actualizacion de la lista
+                if (getIntent().getStringExtra("type").contains("pasos")){
+                    pasosList.set(indexList,mod_item);
+                    mAdapterPasos.notifyDataSetChanged();
+                }else {
+                    ingredientesList.set(indexList,mod_item);
+                    mAdapterIngre.notifyDataSetChanged();
+                }
+
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
 
     }
 
