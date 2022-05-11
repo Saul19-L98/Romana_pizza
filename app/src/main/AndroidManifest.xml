@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pizzeria_forkify">
         <activity
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:name=".OrderPizza.Activities.PasosIngredientesMod"
+            android:name=".OrderPizza.Activities.login.RegisterActivity"
             android:exported="false" />
         <activity
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:name=".OrderPizza.Activities.RecipeModification"
+            android:name=".OrderPizza.Activities.login.LoginActivity"
             android:exported="false" />
+        <activity
+            android:name=".OrderPizza.Activities.PasosIngredientesMod"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".OrderPizza.Activities.RecipeModification"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".OrderPizza.Activities.RecipeDisplay"
             android:exported="false" />
@@ -31,6 +37,7 @@
             android:theme="@style/Theme.ToolBarActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

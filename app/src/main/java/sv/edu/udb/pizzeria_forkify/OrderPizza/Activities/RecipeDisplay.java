@@ -98,7 +98,6 @@ public class RecipeDisplay extends AppCompatActivity {
                         TextView textView = new TextView(getApplication());
                         textView.setText("-"+items+"\n");
                         textView.setTextSize(20f);
-
                         linearLayout.addView(textView);
                     }
 
@@ -108,26 +107,6 @@ public class RecipeDisplay extends AppCompatActivity {
                     textView.setTextSize(20f);
                     linearLayout2.addView(textView);
                 }
-
-
-
-
-
-//                //lista de los ingredientes
-//                ArrayAdapter<String> ingredientesAdapter = new ArrayAdapter<>(RecipeDisplay.this, android.R.layout.simple_list_item_1,ArrayList_Ingredientes);
-//                lv_Ingredientes = findViewById(R.id.lv_Ingredientes);
-//                lv_Ingredientes.setAdapter(ingredientesAdapter);
-//                Log.e("Listas", "Lista de ingredientes: "+  ingredientesList.get(1));
-//                ArrayList_Ingredientes.addAll(ingredientesList);
-//                ingredientesAdapter.notifyDataSetChanged();
-//
-//
-//                //lista de los pasos
-//                ArrayAdapter<String> pasosAdapter = new ArrayAdapter<>(RecipeDisplay.this, android.R.layout.simple_list_item_1,ArrayList_Pasos);
-//                lv_Pasos = findViewById(R.id.lv_pasos);
-//                lv_Pasos.setAdapter(pasosAdapter);
-//                ArrayList_Pasos.addAll(pasosList);
-//                ingredientesAdapter.notifyDataSetChanged();
 
 
             }
