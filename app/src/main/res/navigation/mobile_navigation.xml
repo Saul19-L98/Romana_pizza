@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_menu">
+
+    <fragment
+        android:id="@+id/nav_menu"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu.HomeMenuFragment"
+        android:label="@string/menu_home_pizzas_menu"
+        tools:layout="@layout/fragment_home_menu" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.login.LoginFragment"
+        android:label="@string/menu_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_exp_recipe"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu.ExpandRecipeFragment"
+        android:label="@string/menu_exp_recipe"
+        tools:layout="@layout/expand_recipe_fragment" />
+</navigation>
