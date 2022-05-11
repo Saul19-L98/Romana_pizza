@@ -18,13 +18,13 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
-        android:id="@+id/nav_login"
-        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.login.LoginFragment"
-        android:label="@string/menu_login"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/nav_bookmarks"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.bookmarks.BookmarksFragment"
+        android:label="@string/menu_bookmarks"
+        tools:layout="@layout/fragment_bookmarks" />
     <fragment
-        android:id="@+id/nav_exp_recipe"
-        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu.ExpandRecipeFragment"
-        android:label="@string/menu_exp_recipe"
-        tools:layout="@layout/expand_recipe_fragment" />
+        android:id="@+id/nav_admin"
+        android:name="sv.edu.udb.pizzeria_forkify.OrderPizza.ui.admin.AdminFragment"
+        android:label="@string/Admin"
+        tools:layout="@layout/fragment_admin" />
 </navigation>

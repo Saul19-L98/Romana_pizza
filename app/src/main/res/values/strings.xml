@@ -8,17 +8,50 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="invalid_mail">Ingrese un Correo valido!</string>
+    <string name="invalid_password">Ingrese una contraseña mayor a 6 digitos!</string>
+
     <string name="menu_home_pizzas_menu">Menu</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_login">Iniciar Sesion</string>
+    <string name="menu_bookmarks">Mis Recetas</string>
+    <string name="menu_admin">Adminstracion</string>
+    <string name="title_activity_recipe_display">RecipeDisplay</string>
+    <string name="large_text">
+        hola llegate hasta aqui , esto lo agrego la plantillia de android xd
+    </string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
 
-    <string name="Text_Splash">Recetario Forkyfy</string>
-
-    <string name="About_SOCIAL">REDES SOCIALES</string>
-    <string name="About_Insta">Forkyfy_SV</string>
-    <string name="About_Facebook">Forkyfy</string>
-    <string name="About_Twitter">ForkyfySV</string>
-    <string name="About_derechos">Derechos Reservados 2022</string>
-    <string name="menu_exp_recipe">Receta</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="Reciple_Title">Titulo</string>
+    <string name="NoPersonas">N Per.</string>
+    <string name="Tiempo_Receta"> Tiempo</string>
+    <string name="Ingredientes">Ingredientes </string>
+    <string name="Pasos">Pasos</string>
+    <string name="Lista_Recetas">Listado de Recetas</string>
+    <string name="Insert_Titulo">Registrar receta</string>
+    <string name="Insert_Descripcion">Descripción</string>
+    <string name="Insert_Pasos">Pasos</string>
+    <string name="Insert_NoPersonas">No de Personas</string>
+    <string name="Insert_Ingredientes">Ingredientes</string>
+    <string name="Insert_Button">Subir imagen y guardar</string>
+    <string name="Insert_NombreReceta">Título de la receta</string>
+    <string name="Insert_Tiempo">Tiempo</string>
+    <string name="Admin">Adminsitracion</string>
+    <string name="delete_warning">La receta se eliminiara de forma permanente!</string>
+    <string name="title_activity_recipe_modification">RecipeModification</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="Guardar">Guardar</string>
+    <string name="img_ref">Link de la Imgen</string>
+    <string name="Agregar">Agregar</string>
+    <string name="Agregar_items">Agrega Items</string>
+    <string name="Crear">Crear</string>
+    <string name="CampoVacio">Campo Vacio</string>
+    <string name="bookmarks">Mis Recetas</string>
 
 </resources>
