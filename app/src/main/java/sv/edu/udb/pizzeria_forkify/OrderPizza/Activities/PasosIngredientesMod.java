@@ -4,6 +4,8 @@ import static sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModificati
 import static sv.edu.udb.pizzeria_forkify.OrderPizza.LandingMenuActivity.refMixto;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -122,16 +124,14 @@ public class PasosIngredientesMod extends AppCompatActivity {
                         mAdapterPasos.notifyDataSetChanged();
                     }
                     else {
-                        Toast.makeText(PasosIngredientesMod.this,R.string.CampoVacio, Toast.LENGTH_SHORT).show();
+                        validar();
                     }
                 }else{
                     if (!et_btnAgregar.getText().toString().isEmpty()){
                         ingredientesList.add(ingredientesList.size(),et_btnAgregar.getText().toString());
                         mAdapterIngre.notifyDataSetChanged();
                     }
-                    else {
-                        Toast.makeText(PasosIngredientesMod.this,R.string.CampoVacio, Toast.LENGTH_SHORT).show();
-                    }
+                    else { validar();                   }
                 }
             }
         });
@@ -182,6 +182,17 @@ public class PasosIngredientesMod extends AppCompatActivity {
         });
         dialog.show();
 
+    }
+
+    private boolean validar(){
+        boolean retorno=true;
+
+        String c1=et_btnAgregar.getText().toString();
+        if(c1.isEmpty()){
+            et_btnAgregar.setError("Campo obligatorio");
+            retorno=false;
+        }
+        return retorno;
     }
 
     private void hooks() {

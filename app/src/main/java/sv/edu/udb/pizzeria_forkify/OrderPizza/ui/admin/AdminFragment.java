@@ -16,10 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.RecipeModification;
-import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetas;
 import sv.edu.udb.pizzeria_forkify.databinding.FragmentAdminBinding;
 
 public class AdminFragment extends Fragment {
@@ -49,10 +46,9 @@ public class AdminFragment extends Fragment {
         tv_btn_crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent= new Intent(getContext(), RecipeModification.class);
-//                ModelRecetas modelRecetasItem =list.get(list.size()-1);
-//                intent.putExtra("LastKey",modelRecetasItem.getKey());
-//                getContext().startActivity(intent);
+                Intent intent= new Intent(getActivity(), RecipeModification.class);
+                intent.putExtra("mod","f");
+                startActivity(intent);
             }
         });
 

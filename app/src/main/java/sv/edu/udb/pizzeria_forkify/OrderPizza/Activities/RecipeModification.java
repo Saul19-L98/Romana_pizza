@@ -82,37 +82,39 @@ public class RecipeModification extends AppCompatActivity {
         save_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                modelArrayIngre.clear();
-                modelArrayPasos.clear();
-                String ListKey = "A";
 
-                for( String item : ingredientesList){
-                    ModelArray modelArray= new ModelArray(item,ListKey);
-                    int charValue = ListKey.charAt(0);
-                    String next  = String.valueOf((char)(charValue + 1));
-                    ListKey=next;
-                    modelArrayIngre.add(modelArray);
+                if(validar()) {
+                    modelArrayIngre.clear();
+                    modelArrayPasos.clear();
+                    String ListKey = "A";
+
+                    for (String item : ingredientesList) {
+                        ModelArray modelArray = new ModelArray(item, ListKey);
+                        int charValue = ListKey.charAt(0);
+                        String next = String.valueOf((char) (charValue + 1));
+                        ListKey = next;
+                        modelArrayIngre.add(modelArray);
+                    }
+                    ListKey = "A";
+
+                    for (String item2 : pasosList) {
+                        ModelArray modelArray = new ModelArray(item2, ListKey);
+                        int charValue = ListKey.charAt(0);
+                        String next = String.valueOf((char) (charValue + 1));
+                        ListKey = next;
+                        modelArrayPasos.add(modelArray);
+                    }
+                    if (getIntent().getStringExtra("mod").contains("m")) {
+                        //modificacion
+                        updateDB();
+
+                    } else {
+                        //creacion
+                        insertDB();
+                    }
+                    RecipeModification.super.onBackPressed();
+                    finish();
                 }
-                ListKey = "A";
-
-                for( String item2 : pasosList){
-                    ModelArray modelArray= new ModelArray(item2,ListKey);
-                    int charValue = ListKey.charAt(0);
-                    String next  = String.valueOf((char)(charValue + 1));
-                    ListKey=next;
-                    modelArrayPasos.add(modelArray);
-                }
-                if (getIntent().getStringExtra("mod").contains("m")){
-                    //modificacion
-                    updateDB();
-
-                }else {
-                    //creacion
-                    insertDB();
-                }
-                RecipeModification.super.onBackPressed();
-                finish();
-
             }
         });
 
@@ -134,6 +136,9 @@ public class RecipeModification extends AppCompatActivity {
         in_pasos_ingre(key);
 
     }
+
+
+
 
     private void updateDB() {
         ModelRecetas modelRecetas =new ModelRecetas();
@@ -163,6 +168,34 @@ public class RecipeModification extends AppCompatActivity {
 
 
     }
+    private boolean validar(){
+        boolean retorno=true;
+
+        String c1=et_recipe_title.getText().toString();
+        String c2=et_descripion.getText().toString();
+        String c3=et_nopersonas.getText().toString();
+        String c4=et_tiempo.getText().toString();
+        String c5=et_imgref.getText().toString();
+
+        if(c1.isEmpty()){
+            et_recipe_title.setError("Campo obligatorio");
+            retorno=false;
+        }
+        if(c2.isEmpty()){
+            et_descripion.setError("Campo obligatorio");
+        }
+        if(c3.isEmpty()){
+            et_nopersonas.setError("Campo obligatorio");
+        }
+        if(c4.isEmpty()){
+            et_tiempo.setError("Campo obligatorio");
+        }
+        if(c5.isEmpty()){
+            et_imgref.setError("Campo obligatorio");
+        }
+        return retorno;
+    }
+
 
     private void Hooks() {
     et_recipe_title=findViewById(R.id.et_recipe_title);
