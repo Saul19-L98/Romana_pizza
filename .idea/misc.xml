@@ -24,6 +24,7 @@
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.253515625" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.3" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_landing_menu.xml" value="0.4413757165190203" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_login.xml" value="0.225" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_pasos_ingredientes_mod.xml" value="0.2546875" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/activity_recipe_display.xml" value="0.4" />
@@ -42,7 +43,7 @@
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_gallery.xml" value="0.31354166666666666" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_home.xml" value="0.6084860173577628" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_home_menu.xml" value="0.31354166666666666" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_login.xml" value="0.31354166666666666" />
+        <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_recipe_modification.xml" value="0.4" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_second.xml" value="0.32708333333333334" />
         <entry key="..\:/Users/willi/AndroidStudioProjects/pizzeria_forkify/app/src/main/res/layout/fragment_slideshow.xml" value="0.31354166666666666" />
