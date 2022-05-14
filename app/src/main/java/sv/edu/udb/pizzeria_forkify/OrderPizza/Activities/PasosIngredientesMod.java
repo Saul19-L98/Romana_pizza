@@ -58,11 +58,15 @@ public class PasosIngredientesMod extends AppCompatActivity {
 
         if (getIntent().getStringExtra("type").contains("pasos")){
             tv_pasos_ingredientes_mod.setText(R.string.Pasos);
+            et_btnAgregar.setHint("Ingrese paso");
+
             lv_ingredientes_pasos.setAdapter(mAdapterPasos);
+
             mAdapterPasos.notifyDataSetChanged();
         }else {
             lv_ingredientes_pasos.setAdapter(mAdapterIngre);
             tv_pasos_ingredientes_mod.setText(R.string.Ingredientes);
+            et_btnAgregar.setHint("Ingrese ingrediente");
             mAdapterIngre.notifyDataSetChanged();
         }
 

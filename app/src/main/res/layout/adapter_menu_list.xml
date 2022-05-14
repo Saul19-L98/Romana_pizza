@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -10,19 +11,40 @@
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp"
         android:layout_marginTop="5dp"
+        android:background="@color/list_back"
         >
 
         <LinearLayout
+            android:background="@color/list_back"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:padding="10dp"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_titulo"
+                    android:layout_width="145dp"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/img_receta"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                 />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img_receta"
-                android:layout_width="120dp"
-                android:layout_height="120dp"/>
+            </LinearLayout>
+
+
 
 
             <LinearLayout
@@ -31,30 +53,31 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="8dp"
                 >
 
-                <TextView
-                    android:id="@+id/tv_titulo"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/group"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
                     />
 
                 <TextView
                     android:id="@+id/tv_personas"
                     android:layout_height="wrap_content"
-                    android:layout_width="145dp"
+                    android:layout_width="130dp"
                     android:textColor="#000000"
                     android:textSize="16dp"
                     android:layout_marginTop="10dp"
+                    android:textAlignment="center"
                     />
 
 
             </LinearLayout>
             <LinearLayout
+                android:layout_marginTop="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -62,16 +85,25 @@
                 android:layout_gravity="center"
                 >
 
-                <TextView
-                    android:id="@+id/tv_tiempo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Price:exampple"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/sandclock"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
 
                     />
+
+                <TextView
+                    android:id="@+id/tv_tiempo"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textColor="#000000"
+                    android:textSize="16dp"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    />
+
 
 
 
