@@ -28,7 +28,7 @@ Una app facil de usar 😎
 | [Video Final 😉](https://www.youtube.com/watch?v=WPRyYHykwjg)              | Demostración de los avances en el proyecto para la su fase final                                                                                                                    |
 | [Manual de Usuario](https://drive.google.com/file/d/14UkhpR7vt9pZL6oXKvxOvLoeuN0YnLGK/view)              | Documento donde se explica como funciona la aplicación                                                                                                                    |
 | [Manual Técnico](https://drive.google.com/file/d/1CeaurZdrGC9Ljq6UUPXA74ZcLNIUBt1j/view)              | Documento donde se explica como esta construidad la aplicación                                                                                                                   |
-| 80%              | Porcentaje que se logró desarrollar de la aplicación                                                                                                                   |
+| 99.5%              | Porcentaje que se logró desarrollar de la aplicación                                                                                                                   |
 
 
 
