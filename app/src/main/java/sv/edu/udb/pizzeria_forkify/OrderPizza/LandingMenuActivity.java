@@ -81,10 +81,11 @@ public class LandingMenuActivity extends AppCompatActivity {
 
         //Metodo de obtencion del Nombre usuario a travez del nickname del correo
         String userEmail= FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        UserEmail.setText(userEmail);
         int index = userEmail.indexOf('@');
         userEmail = userEmail.substring(0,index);
         Username.setText(userEmail);
-        UserEmail.setText(userEmail);
+
 
 
 
