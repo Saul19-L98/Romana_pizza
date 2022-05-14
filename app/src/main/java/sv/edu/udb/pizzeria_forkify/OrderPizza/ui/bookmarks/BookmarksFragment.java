@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import sv.edu.udb.pizzeria_forkify.databinding.FragmentBookmarksBinding;
 
@@ -23,8 +25,10 @@ public class BookmarksFragment extends Fragment {
 
         binding = FragmentBookmarksBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        String username= bookmarksViewModel.getMyBookmarks();
+        final RecyclerView  recyclerView = binding.recipeList;
+        recyclerView.setHasFixedSize(false);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        bookmarksViewModel.getMyBookmarks(recyclerView,getContext());
 
 
         return root;
