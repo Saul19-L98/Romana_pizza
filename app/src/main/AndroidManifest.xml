@@ -11,10 +11,14 @@
         android:theme="@style/Theme.Pizzeria_forkify">
         <activity
             android:name=".OrderPizza.Activities.login.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+
+            />
         <activity
             android:name=".OrderPizza.Activities.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Material3.Dark.NoActionBar"
+            />
         <activity
             android:name=".OrderPizza.Activities.PasosIngredientesMod"
             android:exported="false"

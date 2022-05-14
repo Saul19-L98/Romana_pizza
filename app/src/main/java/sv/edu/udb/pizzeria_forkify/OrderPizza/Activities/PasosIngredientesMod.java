@@ -45,9 +45,6 @@ public class PasosIngredientesMod extends AppCompatActivity {
     ArrayAdapter<String> mAdapterIngre;
     ArrayAdapter<String> mAdapterPasos;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

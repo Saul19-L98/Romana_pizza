@@ -33,6 +33,8 @@
 
         <EditText
             android:id="@+id/email"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo"
@@ -41,6 +43,8 @@
 
         <EditText
             android:id="@+id/password"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
@@ -50,17 +54,21 @@
 
         <Button
             android:id="@+id/login"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:text="Ingresar"
             android:textColor="@color/black" />
 
         <Button
             android:id="@+id/register"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_500"
             android:text="Registrar"
             android:textColor="@color/black" />
 

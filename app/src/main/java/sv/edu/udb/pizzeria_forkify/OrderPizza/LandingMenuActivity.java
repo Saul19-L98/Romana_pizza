@@ -1,10 +1,14 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -19,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import sv.edu.udb.pizzeria_forkify.OrderPizza.Activities.login.LoginActivity;
 import sv.edu.udb.pizzeria_forkify.R;
 import sv.edu.udb.pizzeria_forkify.databinding.ActivityLandingMenuBinding;
 
@@ -93,9 +98,28 @@ public class LandingMenuActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //Metodo Utilizado para definir las acciones del menu de opaciones en la TOOLBAR
+        //Configuracion del cierre de sesion
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                //Metodo para cerrar  la sesion activa del usuario
+                Toast.makeText(getApplicationContext(),"Cerrando Sesion",Toast.LENGTH_SHORT).show();
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(LandingMenuActivity.this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_landing_menu);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }
