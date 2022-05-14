@@ -12,7 +12,7 @@
     <string name="invalid_password">Ingrese una contraseña mayor a 6 digitos!</string>
 
     <string name="menu_home_pizzas_menu">Menu</string>
-    <string name="menu_gallery">Gallery</string>
+    <string name="menu_contactos">Contactos</string>
     <string name="menu_bookmarks">Mis Recetas</string>
     <string name="menu_admin">Adminstracion</string>
     <string name="title_activity_recipe_display">RecipeDisplay</string>

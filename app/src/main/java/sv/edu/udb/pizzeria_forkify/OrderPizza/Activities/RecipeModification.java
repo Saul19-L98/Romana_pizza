@@ -1,6 +1,8 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.Activities;
 
 import static sv.edu.udb.pizzeria_forkify.OrderPizza.LandingMenuActivity.refMixto;
+import static sv.edu.udb.pizzeria_forkify.OrderPizza.ui.admin.AdminViewModel.lastKey;
+
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -50,6 +52,7 @@ public class RecipeModification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_modification);
+
 
         Hooks();
         ingredientesList.clear();
@@ -130,14 +133,27 @@ public class RecipeModification extends AppCompatActivity {
                 Integer.parseInt(et_nopersonas.getText().toString().trim())
         );
 
-        String key= getIntent().getStringExtra("LastKey");
-        refMixto.child(key).setValue(modelRecetasInsert);
 
-        in_pasos_ingre(key);
+        refMixto.child(getLastKey()).setValue(modelRecetasInsert);
+
+        in_pasos_ingre(getLastKey());
 
     }
 
+    private String getLastKey() {
+        String key=lastKey;
+        String[] part = key.split("(?<=\\D)(?=\\d)");
+        key = part[0]+ String.valueOf(Integer.parseInt(part[1])+1);
 
+
+
+       /** lastKey== "MXT2" */
+
+
+
+
+        return key;
+    }
 
 
     private void updateDB() {
@@ -145,11 +161,11 @@ public class RecipeModification extends AppCompatActivity {
         modelRecetas= (ModelRecetas) getIntent().getSerializableExtra("clase");
 
         ModelRecetasInsert modelRecetasInsert = new ModelRecetasInsert(
-                modelRecetas.getTitulo(),
-                modelRecetas.getRefImg(),
-                modelRecetas.getDescripcion(),
-                modelRecetas.getTiempo(),
-                modelRecetas.getNoPersonas()
+                et_recipe_title.getText().toString().trim() ,
+                et_imgref.getText().toString().trim(),
+                et_descripion.getText().toString().trim(),
+                et_tiempo.getText().toString().trim(),
+                Integer.parseInt(et_nopersonas.getText().toString())
         );
 
         refMixto.child(modelRecetas.getKey()).setValue(modelRecetasInsert);
@@ -183,15 +199,19 @@ public class RecipeModification extends AppCompatActivity {
         }
         if(c2.isEmpty()){
             et_descripion.setError("Campo obligatorio");
+            retorno=false;
         }
         if(c3.isEmpty()){
             et_nopersonas.setError("Campo obligatorio");
+            retorno=false;
         }
         if(c4.isEmpty()){
             et_tiempo.setError("Campo obligatorio");
+            retorno=false;
         }
         if(c5.isEmpty()){
             et_imgref.setError("Campo obligatorio");
+            retorno=false;
         }
         return retorno;
     }

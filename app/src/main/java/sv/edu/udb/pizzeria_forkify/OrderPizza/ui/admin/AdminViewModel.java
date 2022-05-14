@@ -25,6 +25,7 @@ public class AdminViewModel extends ViewModel {
     private ArrayList<String> ingredientesList;
     private ArrayList<String> pasosList;
     RecetasListAdapter recetasListAdapter;
+    public static String lastKey="a";
 
 
     //referencia de la base de datos
@@ -78,8 +79,10 @@ public class AdminViewModel extends ViewModel {
 
 
                     list.add(modelRecetasItem);
-
+                    lastKey= modelRecetasItem.getKey();
                 }
+
+
 
                 listOriginal.addAll(list);
                 recetasListAdapter.notifyDataSetChanged();

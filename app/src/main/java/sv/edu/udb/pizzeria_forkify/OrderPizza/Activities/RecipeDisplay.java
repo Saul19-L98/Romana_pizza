@@ -51,8 +51,6 @@ public class RecipeDisplay extends AppCompatActivity {
 
         hooks();
 
-
-
         String key = getIntent().getStringExtra("key");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
                 .child("RecetarioForkify")

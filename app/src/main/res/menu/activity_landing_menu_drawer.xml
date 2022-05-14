@@ -14,10 +14,6 @@
             android:icon="@drawable/logo_prototype"
             android:title="@string/menu_home_pizzas_menu" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
             android:id="@+id/nav_bookmarks"
             android:icon="@drawable/book"
             android:title="@string/menu_bookmarks" />
@@ -26,5 +22,9 @@
             android:id="@+id/nav_admin"
             android:icon="@drawable/user"
             android:title="@string/menu_admin" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/whatsapp"
+            android:title="@string/menu_contactos" />
     </group>
 </menu>
