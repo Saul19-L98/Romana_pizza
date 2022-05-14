@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".OrderPizza.ui.admin.AdminFragment">
 
     <LinearLayout
@@ -36,7 +37,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/Recetas_list"
                 android:layout_width="match_parent"
-                android:layout_height="520dp">
+                android:layout_height="500dp">
 
             </androidx.recyclerview.widget.RecyclerView>
 
@@ -49,6 +50,7 @@
                 android:padding="5sp"
                 android:layout_marginTop="20sp"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:background="@drawable/btn_shape"
                 android:textStyle="bold"
                 />
