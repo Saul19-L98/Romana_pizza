@@ -53,5 +53,11 @@
     <string name="Crear">Crear</string>
     <string name="CampoVacio">Campo Vacio</string>
     <string name="bookmarks">Mis Recetas</string>
+    <string name="Text_Splash">Recetario Forkify</string>
+    <string name="About_SOCIAL">Redes Sociales</string>
+    <string name="About_Insta">Forkify_sv</string>
+    <string name="About_Facebook">Forkify</string>
+    <string name="About_Twitter">ForkifySV</string>
+    <string name="About_derechos">AboutDerechos</string>
 
 </resources>
