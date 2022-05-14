@@ -10,9 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pizzeria_forkify">
         <activity
-            android:name=".OrderPizza.ui.login.RegisterActivity"
+            android:name=".OrderPizza.Activities.login.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderPizza.Activities.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OrderPizza.Activities.PasosIngredientesMod"
             android:exported="false"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".OrderPizza.Activities.RecipeModification"
+            android:exported="false"
+            android:theme="@style/Theme.Design.NoActionBar" />
+        <activity
+            android:name=".OrderPizza.Activities.RecipeDisplay"
+            android:exported="false" />
         <activity
             android:name=".OrderPizza.LandingMenuActivity"
             android:exported="false"

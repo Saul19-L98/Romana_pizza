@@ -1,6 +1,7 @@
 package sv.edu.udb.pizzeria_forkify.OrderPizza.ui.home_menu;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
@@ -13,21 +14,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import sv.edu.udb.pizzeria_forkify.OrderPizza.model.MenuPizzasItem;
+import sv.edu.udb.pizzeria_forkify.OrderPizza.model.ModelRecetas;
 
 public class HomeMenuViewModel extends ViewModel {
 
 
 //    private final MutableLiveData<String> mText;
-    private ArrayList<MenuPizzasItem> list;
-    private ArrayList<MenuPizzasItem> listOriginal;
-    MenuPizzasAdapter menuPizzasAdapter;
+    private ArrayList<ModelRecetas> list;
+    private ArrayList<ModelRecetas> listOriginal;
+    private ArrayList<String> ingredientesList;
+    private ArrayList<String> pasosList;
+    ModelRecetasAdapter modelRecetasAdapter;
 
 
+//    DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
+//            .child("PizzeriaForkify")
+//            .child("Menu")
+//            .child("Catergorias")
+//            .child("Pizzas");
     DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
-            .child("PizzeriaForkify")
-            .child("Menu")
-            .child("Catergorias")
-            .child("Pizzas");
+            .child("RecetarioForkify")
+            .child("Categoria")
+            .child("Mixto");
 
 
 
@@ -45,22 +53,52 @@ public class HomeMenuViewModel extends ViewModel {
     public void getMenu(RecyclerView recyclerView, Context context) {
         listOriginal =new ArrayList<>();
         list = new ArrayList<>();
-        menuPizzasAdapter = new MenuPizzasAdapter(context,list);
-        recyclerView.setAdapter(menuPizzasAdapter);
+        ingredientesList = new ArrayList<>();
+        pasosList = new ArrayList<>();
+
+        modelRecetasAdapter = new ModelRecetasAdapter(context,list);
+        recyclerView.setAdapter(modelRecetasAdapter);
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
                 listOriginal.clear();
+
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    MenuPizzasItem menuPizzasItem = dataSnapshot.getValue(MenuPizzasItem.class);
-                    menuPizzasItem.setKey(dataSnapshot.getKey().toString());
-                    list.add(menuPizzasItem);
+                    pasosList.clear();
+                    ingredientesList.clear();
+                    Log.e("Datasnapshot", "Adapter pizza list: "+ dataSnapshot);
+
+                    for (DataSnapshot dataSnapshot1:snapshot.child(dataSnapshot.getKey()).child("Ingredientes").getChildren()){
+                        //Log.e("Ingredientes", "Adapter pizza list: "+ dataSnapshot1);
+                        ingredientesList.add(dataSnapshot1.getValue().toString());
+                    }
+
+                    for (DataSnapshot dataSnapshot2:snapshot.child(dataSnapshot.getKey()).child("Pasos").getChildren()){
+                        //Log.e("Pasos", "Adapter pizza list: "+ dataSnapshot2);
+                        pasosList.add(dataSnapshot2.getValue().toString());
+                    }
+
+                    Log.e("Listas", "Adapter pizza list: "+ pasosList );
+
+                    ModelRecetas modelRecetasItem =new ModelRecetas(
+                            snapshot.child(dataSnapshot.getKey()).child("titulo").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("refImg").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("descripcion").getValue().toString(),
+                            snapshot.child(dataSnapshot.getKey()).child("tiempo").getValue().toString(),
+                            (ArrayList<String>) ingredientesList.clone(), (ArrayList<String>) pasosList.clone(),
+                            Integer.parseInt(snapshot.child(dataSnapshot.getKey()).child("noPersonas").getValue().toString())
+                    );
+                    modelRecetasItem.setKey(dataSnapshot.getKey());
+
+
+                    list.add(modelRecetasItem);
 
                 }
+
                 listOriginal.addAll(list);
-                menuPizzasAdapter.notifyDataSetChanged();
+                modelRecetasAdapter.notifyDataSetChanged();
 
             }
             @Override
@@ -81,7 +119,7 @@ public class HomeMenuViewModel extends ViewModel {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                menuPizzasAdapter.filter(newText,listOriginal);
+                modelRecetasAdapter.filter(newText,listOriginal);
                 return false;
             }
         });

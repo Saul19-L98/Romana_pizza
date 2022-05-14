@@ -20,7 +20,7 @@
             >
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/img_pizza"
+                android:id="@+id/img_receta"
                 android:layout_width="120dp"
                 android:layout_height="120dp"/>
 
@@ -34,7 +34,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_name"
+                    android:id="@+id/tv_titulo"
                     android:layout_width="145dp"
                     android:layout_height="wrap_content"
 
@@ -44,7 +44,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_ingredients"
+                    android:id="@+id/tv_personas"
                     android:layout_height="wrap_content"
                     android:layout_width="145dp"
                     android:textColor="#000000"
@@ -63,7 +63,7 @@
                 >
 
                 <TextView
-                    android:id="@+id/tv_price"
+                    android:id="@+id/tv_tiempo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
